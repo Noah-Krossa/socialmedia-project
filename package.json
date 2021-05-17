@@ -1,0 +1,48 @@
+{
+  "name": "sociality-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "@types/react": "^17.0.5",
+    "@types/react-dom": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
+    "babel-loader": "^8.2.2",
+    "core-js": "^3.12.1",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-react": "^7.23.2",
+    "html-webpack-plugin": "^5.3.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "eslint": "^7.26.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "scripts": {
+    "dev": "webpack serve --env --production --progress",
+    "lint": "eslint --ext .ts,.tsx",
+    "lint:fix": "yarn run lint -- --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.(ts|tsx)": [
+      "yarn run --silent lint:fix",
+      "git add"
+    ]
+  }
+}
