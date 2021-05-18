@@ -11,35 +11,3 @@
   align-items: center;
   border-bottom: 1px solid #bbbbbb;
 }
-
-.search {
-  width: 350px;
-  position: relative;
-  height: 38px;
-  display: flex;
-  & button,
-  & input {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    font-size: 16px;
-  }
-
-  & input {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 9px;
-    padding-left: $unit-space;
-  }
-
-  & button {
-    color: $color_gray;
-    & i {
-      margin: $unit-space;
-    }
-    &[data-visible="false"] {
-      display: none;
-    }
-  }
-}
