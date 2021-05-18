@@ -1,0 +1,16 @@
+@import "./config";
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  &,
+  &::after,
+  &::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
+
+body {
+  background-color: lighten($color_light-gray, 5);
+}

@@ -4,6 +4,8 @@
         "esModuleInterop": true,
         "allowJs": true,
         "jsx": "react",
+        "moduleResolution": "node",
+        "declaration": true
     },
     "include": ["src/**/*"]
 }

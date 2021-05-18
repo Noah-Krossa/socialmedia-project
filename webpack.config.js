@@ -13,7 +13,7 @@ module.exports = (env) => {
       filename: 'app.bundle.js'
     },
     resolve: {
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json']
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.scss', '.css']
     },
     module: {
       rules: [
@@ -39,6 +39,29 @@ module.exports = (env) => {
           test: /\.jsx?$/,
           use: 'babel-loader',
           exclude: /node_modules/
+        },
+
+        {
+          test: /\.s?css$/i,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: {
+                  localIdentName: "[name]__[local]___[hash:base64:5]",
+                },
+              }
+            }, 
+            'sass-loader',
+          ],
+          include: /\.m\.s?css$/i
+        },
+        {
+          test: /\.s?css$/i,
+          use: [ 'style-loader', 'css-loader', 'sass-loader' ],
+          exclude: /\.m\.s?css$/i
         }
       ]
     },
@@ -51,7 +74,8 @@ module.exports = (env) => {
     devServer: {
       port: 8080,
       watchContentBase: true,
-      open: true
+      open: true,
+      overlay: true
     }
   }
 }
